@@ -1,0 +1,31 @@
+---
+import { imageMetadata } from 'astro/dist/assets';
+
+export interface Props {
+    title: string;
+    description: string;
+    image?: string;
+    path: string[];
+}
+
+const { path, title, image, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head >
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        {image != null && <meta property="og:image" content={image} /> }
+		<link rel="icon" type="image/x-png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen">
+        <h1>{path.join('/')}: {title}</h1>
+		<slot />
+	</body>
+</html>

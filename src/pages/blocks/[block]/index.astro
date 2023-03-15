@@ -1,0 +1,14 @@
+---
+import Page from "../../../layouts/Page.astro";
+import actiondump from "../../../../public/actiondump.json";
+
+const id = (Astro.params.block ?? "").toLowerCase().replace('_','');
+const action = actiondump.codeblocks.find(cb => cb.name.toLowerCase().replace(' ','') == id || cb.identifier.replace('_','') == id) as typeof actiondump.codeblocks[0];
+if(action == null) Astro.redirect('404');
+---
+
+<Page path={["blocks",action.name]} description={action.item.description.join('\n')} title={action.item.name.replace(/§./g,'')} image={`https://dfonline.dev/public/images/${action.item.material}.png`}>
+    <p>
+        {action.item.name}
+    </p>
+</Page>
