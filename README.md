@@ -1,2 +1,2 @@
 # info
-Wiki with discord embeds for DF
+MCDiamondFire action info and wiki.
