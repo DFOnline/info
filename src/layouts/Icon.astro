@@ -8,10 +8,17 @@ export interface Props {
     background?: string;
 }
 
+
 const { background, icon } = Astro.props;
+
+const description = icon.description.map(x => cleanText(x))
+if(icon.example.length > 0) {
+    description.push('')
+    icon.example.forEach(x => description.push(cleanText(x)));
+}
 ---
 
-<Page background={background} title={cleanText(icon.name)} description={cleanText(icon.description.join('\n'))} image={`https://dfonline.dev/public/images/${icon.material}.png`}>
+<Page background={background} title={cleanText(icon.name)} description={cleanText(description.join('\n'))} image={`https://dfonline.dev/public/images/${icon.material}.png`}>
     <div class="flex w-full">    
         <div class="m-auto">
             <IconCard icon={icon}></IconCard>
