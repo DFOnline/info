@@ -1,14 +1,14 @@
 ---
-import Icon from "../../../layouts/Icon.astro";
 import ActionDump from "../../../actiondump";
+import CodeBlock from "../../../layouts/CodeBlock.astro";
 
 const codeBlock = findCodeBlock(Astro.params.block as string);
 
 export function findCodeBlock(query : string) {
     const term = query.toLowerCase().replace(' ','').replace('_','')
-    return ActionDump.codeblocks.find(cb => cb.identifier.replace('_','') == query || cb.name.toLowerCase().replace(' ','') == query || cb.item.name.toLowerCase().replace(' ','') == query);
+    return ActionDump.codeblocks.find(cb => cb.identifier.replace('_','') == term || cb.name.toLowerCase().replace(' ','') == term || cb.item.name.toLowerCase().replace(' ','') == term);
 }
 
 ---
 
-{codeBlock && <Icon icon={codeBlock.item} background={`url(https://assets.mcasset.cloud/1.19.4/assets/minecraft/textures/block/${codeBlock.item.material.toLowerCase()}.png) repeat`}></Icon>}
+{codeBlock && <CodeBlock codeblock={codeBlock} icon={codeBlock.item}></CodeBlock>}

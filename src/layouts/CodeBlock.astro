@@ -1,0 +1,15 @@
+---
+import Icon from "./Icon.astro";
+import type { Codeblock, Icon as Item } from "../actiondump";
+
+export interface Props {
+    icon: Item;
+    codeblock: Codeblock;
+}
+
+const { codeblock, icon } = Astro.props;
+---
+
+<Icon background={`url(https://assets.mcasset.cloud/1.19.4/assets/minecraft/textures/block/${codeblock.item.material.toLowerCase()}.png) repeat`} icon={icon}>
+
+</Icon>

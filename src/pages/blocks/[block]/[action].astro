@@ -1,0 +1,17 @@
+---
+import CodeBlock from "../../../layouts/CodeBlock.astro";
+import ActionDump, { Codeblock } from "../../../actiondump";
+import { findCodeBlock } from "./index.astro";
+
+const codeblock = findCodeBlock(Astro.params.block as string);
+const action = findAction(codeblock as Codeblock, Astro.params.action as string);
+
+export function findAction(codeblock: Codeblock, query: string) {
+    const term = query.toLowerCase().replace(' ','').replace('_','')
+    return ActionDump.actions.find(a => (a.codeblockName == codeblock.name) && (a.name.toLowerCase() == term || a.icon.name.replace(' ','').toLowerCase() == term || a.aliases.find(a => a.replace(' ','').toLowerCase() == term)))
+}
+---
+
+{codeblock && action && <CodeBlock codeblock={codeblock} icon={action.icon}></CodeBlock>}
+
+{JSON.stringify(action)}
