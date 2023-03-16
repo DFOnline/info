@@ -1,0 +1,20 @@
+---
+import Page from './Page.astro';
+import { cleanText, Icon } from '../actiondump';
+import IconCard from '../components/IconCard.astro';
+
+export interface Props {
+    icon: Icon;
+    background?: string;
+}
+
+const { background, icon } = Astro.props;
+---
+
+<Page background={background} title={cleanText(icon.name)} description={cleanText(icon.description.join('\n'))} image={`https://dfonline.dev/public/images/${icon.material}.png`}>
+    <div class="flex w-full">    
+        <div class="m-auto">
+            <IconCard icon={icon}></IconCard>
+        </div>
+    </div>
+</Page>

@@ -5,10 +5,11 @@ export interface Props {
     title: string;
     description: string;
     image?: string;
-    path: string[];
+
+	background?: string;
 }
 
-const { path, title, image, description } = Astro.props;
+const { title, image, description, background } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -24,8 +25,8 @@ const { path, title, image, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="min-h-screen">
-        <h1>{path.join('/')}: {title}</h1>
+	<body class="min-h-screen" style={background && `background: ${background};`}>
+        <h1>{title}</h1>
 		<slot />
 	</body>
 </html>

@@ -1,0 +1,34 @@
+---
+import { cleanText, Icon } from '../actiondump';
+
+export interface Props {
+    icon: Icon;
+}
+
+const { icon } = Astro.props;
+---
+
+<div class="bg-zinc-800 rounded-lg text-white p-5 grid grid-flow-col">
+    <div>
+        <h2 class="text-lg ">{cleanText(icon.name)}</h2>
+        <p>
+            {cleanText(icon.description.join(' '))}
+        </p>
+        {icon.example.length != 0 && <p>
+            {icon.example.map(line => <span>{line.includes('»') && <br />} {<span>{cleanText(line)}</span>}</span>)}    
+        </p>}
+    </div>
+    <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />
+</div>
+
+<style>
+    img:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    img {
+        zoom: 1;
+    }
+</style>

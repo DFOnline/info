@@ -1,14 +1,14 @@
 ---
-import Page from "../../../layouts/Page.astro";
-import actiondump from "../../../../public/actiondump.json";
+import Icon from "../../../layouts/Icon.astro";
+import ActionDump from "../../../actiondump";
 
-const id = (Astro.params.block ?? "").toLowerCase().replace('_','');
-const action = actiondump.codeblocks.find(cb => cb.name.toLowerCase().replace(' ','') == id || cb.identifier.replace('_','') == id) as typeof actiondump.codeblocks[0];
-if(action == null) Astro.redirect('404');
+const codeBlock = findCodeBlock(Astro.params.block as string);
+
+export function findCodeBlock(query : string) {
+    const term = query.toLowerCase().replace(' ','').replace('_','')
+    return ActionDump.codeblocks.find(cb => cb.identifier.replace('_','') == query || cb.name.toLowerCase().replace(' ','') == query || cb.item.name.toLowerCase().replace(' ','') == query);
+}
+
 ---
 
-<Page path={["blocks",action.name]} description={action.item.description.join('\n')} title={action.item.name.replace(/§./g,'')} image={`https://dfonline.dev/public/images/${action.item.material}.png`}>
-    <p>
-        {action.item.name}
-    </p>
-</Page>
+{codeBlock && <Icon icon={codeBlock.item} background={`url(https://assets.mcasset.cloud/1.19.4/assets/minecraft/textures/block/${codeBlock.item.material.toLowerCase()}.png) repeat`}></Icon>}
