@@ -1,6 +1,6 @@
 ---
 import Page from './Page.astro';
-import { cleanText, Icon } from '../actiondump';
+import { cleanText, Icon, Text, TypeToString } from '../actiondump';
 import IconCard from '../components/IconCard.astro';
 
 export interface Props {
@@ -8,13 +8,29 @@ export interface Props {
     background?: string;
 }
 
+export function boldify(string : string) {
+    return string.replace(/[A-Za-z]/g, (char : string) => String.fromCodePoint((char.codePointAt(0) as number) + (/[A-Z]/g.test(char) ? 120211 : 120205)));
+}
 
 const { background, icon } = Astro.props;
 
 const description = icon.description.map(x => cleanText(x))
 if(icon.example.length > 0) {
-    description.push('')
+    description.push('');
+    description.push(boldify('Examples'));
     icon.example.forEach(x => description.push(cleanText(x)));
+}
+if(icon.arguments != null) {
+    description.push('');
+    description.push(boldify('Arguments'));
+    if(icon.arguments.length == 0) description.push('None.');
+    icon.arguments.forEach(x => {
+        if(x.text == Text.OR) description.push('OR');
+        else {
+            if(x.type != null) description.push(`${boldify(TypeToString[x.type])}${x.plural ? "(s)" : ""}${x.optional ? "*" : ""} ${cleanText((x.description as string[]).join(' '))}`);
+            if(x.notes != null) x.notes.forEach(x => x.forEach(x => description.push(cleanText(x))));
+        }
+    });
 }
 ---
 

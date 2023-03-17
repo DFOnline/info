@@ -103,6 +103,28 @@ export enum Type {
     Vehicle = "VEHICLE",
 }
 
+export enum TypeToString {
+    "TEXT" = "Text",
+    "NUMBER" = "Number",
+    "LOCATION" = "Location",
+    "VECTOR" = "Vector",
+    "SOUND" = "Sound",
+    "PARTICLE" = "Particle Effect",
+    "POTION" = "Potion Effect",
+    "VARIABLE" = "Variable",
+    "ANY_TYPE" = "Any Value",
+    "ITEM" = "Item",
+    "BLOCK" = "Block",
+    "ENTITY_TYPE" = "Entity Type",
+    "VEHICLE" = "Vehicle",
+    "SPAWN_EGG" = "Spawn Egg",
+    "PROJECTILE" = "Projectile",
+    "BLOCK_TAG" = "Block Tag",
+    "LIST" = "List",
+    "DICT" = "Dictionary",
+    "NONE" = "None",
+}
+
 export interface Color {
     red:   number;
     green: number;
