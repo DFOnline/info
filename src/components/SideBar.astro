@@ -1,23 +1,30 @@
 ---
 import { openConfig } from "astro/dist/core/config";
-import ActionDump, { Action, Codeblock } from "../actiondump";
+import ActionDump, { Action, cleanText, Codeblock } from "../actiondump";
 import { findCodeBlock } from "../pages/blocks/[block]/index.astro";
 
 const Data = new Map();
-const CodeBlocks = new Map<Codeblock, Action[]>();
+const CodeBlocks = new Map<String, Action[]>();
 ActionDump.actions.forEach(a => {
-    const codeblock = findCodeBlock(a.codeblockName) as Codeblock;
+    const codeblock = a.codeblockName;
     if(!CodeBlocks.has(codeblock)) CodeBlocks.set(codeblock,[]);
     const actions = (CodeBlocks.get(codeblock) as Action[]);
     actions.push(a);
     CodeBlocks.set(codeblock, actions);
 });
-console.log(CodeBlocks);
 Data.set('blocks',CodeBlocks);
 ---
 
-<aside class="bg-zinc-800 text-aqua">
-    {JSON.stringify(CodeBlocks.entries)}
+<aside class="bg-zinc-800 text-white max-h-screen overflow-scroll">
+    {[...CodeBlocks.entries()].map(codeblock => <details>
+        <summary><a href={`/blocks/${codeblock[0].replace(' ','')}`}>{codeblock[0]}</a></summary>
+        <ul>
+            {codeblock[1].map(action => 
+                <li class="ml-5">
+                    <a href={`/blocks/${codeblock[0].replace(' ','')}/${action.name}`}>{cleanText(action.icon.name)}</a>
+                </li>)}
+        </ul>
+    </details>)}
 </aside>
 
 <style>
