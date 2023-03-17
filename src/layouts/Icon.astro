@@ -16,12 +16,10 @@ const { background, icon } = Astro.props;
 
 const description = icon.description.map(x => cleanText(x));
 if(icon.example.length > 0) {
-    description.push('');
-    description.push(boldify('Examples'));
+    description.push('',boldify('Examples'));
     icon.example.forEach(x => description.push(cleanText(x)));
 }
 if(icon.arguments != null) {
-    description.push('');
     description.push(boldify('Arguments'));
     if(icon.arguments.length == 0) description.push('None.');
     icon.arguments.forEach(x => {

@@ -1,0 +1,29 @@
+---
+import { openConfig } from "astro/dist/core/config";
+import ActionDump, { Action, Codeblock } from "../actiondump";
+import { findCodeBlock } from "../pages/blocks/[block]/index.astro";
+
+const Data = new Map();
+const CodeBlocks = new Map<Codeblock, Action[]>();
+ActionDump.actions.forEach(a => {
+    const codeblock = findCodeBlock(a.codeblockName) as Codeblock;
+    if(!CodeBlocks.has(codeblock)) CodeBlocks.set(codeblock,[]);
+    const actions = (CodeBlocks.get(codeblock) as Action[]);
+    actions.push(a);
+    CodeBlocks.set(codeblock, actions);
+});
+console.log(CodeBlocks);
+Data.set('blocks',CodeBlocks);
+---
+
+<aside class="bg-zinc-800 text-aqua">
+    {JSON.stringify(CodeBlocks.entries)}
+</aside>
+
+<style>
+    aside {
+        position: relative;
+        z-index: 10;
+        box-shadow: 0px 0px 5px 5px #000a;
+    }
+</style>
