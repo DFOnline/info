@@ -14,7 +14,7 @@ export function boldify(string : string) {
 
 const { background, icon } = Astro.props;
 
-const description = icon.description.map(x => cleanText(x))
+const description = icon.description.map(x => cleanText(x));
 if(icon.example.length > 0) {
     description.push('');
     description.push(boldify('Examples'));
