@@ -15,12 +15,15 @@ ActionDump.actions.forEach(a => {
 Data.set('blocks',CodeBlocks);
 ---
 
-<aside class="bg-zinc-800 text-white max-h-screen overflow-scroll">
-    {[...CodeBlocks.entries()].map(codeblock => <details>
-        <summary><a href={`/blocks/${codeblock[0].replace(' ','')}`}>{codeblock[0]}</a></summary>
+<aside class="bg-zinc-800 text-white max-h-screen overflow-y-scroll">
+    {[...CodeBlocks.entries()].map(codeblock => 
+    <details>
+        <summary class="flex w-full border-l-4 border-l-teal-800 hover:border-l-teal-600 hover:bg-teal-700">
+            <a class="m-auto" href={`/blocks/${codeblock[0].replace(' ','')}`}>{codeblock[0]}</a>
+        </summary>
         <ul>
             {codeblock[1].map(action => 
-                <li class="ml-5">
+                <li class="border-l-4 border-l-teal-800 hover:border-l-teal-600 ml-1 pl-3">
                     <a href={`/blocks/${codeblock[0].replace(' ','')}/${action.name}`}>{cleanText(action.icon.name)}</a>
                 </li>)}
         </ul>
@@ -28,9 +31,18 @@ Data.set('blocks',CodeBlocks);
 </aside>
 
 <style>
-    aside {
-        position: relative;
-        z-index: 10;
-        box-shadow: 0px 0px 5px 5px #000a;
+    summary {
+        list-style: none;
+        text-align: center;
+    }
+    summary::before {
+        content: '>';
+        margin-left: 0.3em;
+        transform-origin: center 0.8em;
+        transform: translateY(-0.1em);
+        transition: rotate 0.2s;
+    }
+    details[open] > summary::before {
+        rotate: 90deg;
     }
 </style>
