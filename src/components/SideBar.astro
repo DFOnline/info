@@ -1,7 +1,5 @@
 ---
-import { openConfig } from "astro/dist/core/config";
-import ActionDump, { Action, cleanText, Codeblock } from "../actiondump";
-import { findCodeBlock } from "../pages/blocks/[block]/index.astro";
+import ActionDump, { Action, cleanText } from "../actiondump";
 
 const Data = new Map();
 const CodeBlocks = new Map<String, Action[]>();
@@ -19,12 +17,12 @@ Data.set('blocks',CodeBlocks);
     {[...CodeBlocks.entries()].map(codeblock => 
     <details>
         <summary class="flex w-full border-l-4 border-l-teal-800 hover:border-l-teal-600 hover:bg-teal-700">
-            <a class="m-auto" href={`/blocks/${codeblock[0].replace(' ','')}`}>{codeblock[0]}</a>
+            <a class="m-auto" href={`/blocks/${codeblock[0].replace(' ','').toLowerCase()}`}>{codeblock[0]}</a>
         </summary>
         <ul>
             {codeblock[1].map(action => 
                 <li class="border-l-4 border-l-teal-800 hover:border-l-teal-600 ml-1 pl-3">
-                    <a href={`/blocks/${codeblock[0].replace(' ','')}/${action.name}`}>{cleanText(action.icon.name)}</a>
+                    <a href={`/blocks/${codeblock[0].replace(' ','').toLowerCase()}/${action.name}`}>{cleanText(action.icon.name)}</a>
                 </li>)}
         </ul>
     </details>)}
