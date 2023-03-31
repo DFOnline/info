@@ -12,4 +12,4 @@ export function findAction(codeblock: Codeblock, query: string) {
 }
 ---
 
-{codeblock && action && <CodeBlock codeblock={codeblock} icon={action.icon}></CodeBlock>}
+{codeblock && action && <CodeBlock path={[action.name.toLowerCase()]} codeblock={codeblock} icon={action.icon}></CodeBlock>}

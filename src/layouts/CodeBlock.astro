@@ -5,11 +5,12 @@ import type { Codeblock, Icon as Item } from "../actiondump";
 export interface Props {
     icon: Item;
     codeblock: Codeblock;
+    path?: string[];
 }
 
-const { codeblock, icon } = Astro.props;
+const { codeblock, icon, path } = Astro.props;
 ---
 
-<Icon background={`url(https://assets.mcasset.cloud/1.19.4/assets/minecraft/textures/block/${codeblock.item.material.toLowerCase()}.png) repeat`} icon={icon}>
+<Icon path={["blocks",codeblock.name.toLowerCase().replace(' ',''),...path ?? []]} background={`url(https://assets.mcasset.cloud/1.19.4/assets/minecraft/textures/block/${codeblock.item.material.toLowerCase()}.png) repeat`} icon={icon}>
 
 </Icon>

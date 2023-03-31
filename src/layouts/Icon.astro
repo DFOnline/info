@@ -6,13 +6,14 @@ import IconCard from '../components/IconCard.astro';
 export interface Props {
     icon: Icon;
     background?: string;
+    path: string[];
 }
 
 export function boldify(string : string) {
     return string.replace(/[A-Za-z]/g, (char : string) => String.fromCodePoint((char.codePointAt(0) as number) + (/[A-Z]/g.test(char) ? 120211 : 120205)));
 }
 
-const { background, icon } = Astro.props;
+const { background, icon, path } = Astro.props;
 
 const description = icon.description.map(x => cleanText(x));
 if(icon.example.length > 0) {
@@ -33,6 +34,7 @@ if(icon.arguments != null) {
 ---
 
 <Page background={background} title={cleanText(icon.name)} description={cleanText(description.join('\n'))} image={`https://dfonline.dev/public/images/${icon.material}.png`}>
+    {path.join(', ')}
     <div class="flex w-full">    
         <div class="m-auto">
             <IconCard icon={icon}></IconCard>
