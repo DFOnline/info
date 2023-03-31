@@ -2,6 +2,8 @@
 import Page from './Page.astro';
 import { cleanText, Icon, Text, TypeToString } from '../actiondump';
 import IconCard from '../components/IconCard.astro';
+import { getEntryBySlug } from 'astro:content';
+import Container from '../components/Container.astro';
 
 export interface Props {
     icon: Icon;
@@ -31,13 +33,27 @@ if(icon.arguments != null) {
         }
     });
 }
+
+const Content = (await (await getEntryBySlug(path[0] as any, path.splice(1).join('/')))?.render())?.Content;
+console.log(Content)
 ---
 
 <Page background={background} title={cleanText(icon.name)} description={cleanText(description.join('\n'))} image={`https://dfonline.dev/public/images/${icon.material}.png`}>
-    {path.join(', ')}
-    <div class="flex w-full">    
-        <div class="m-auto">
-            <IconCard icon={icon}></IconCard>
-        </div>
+    <div class="flex w-full">
+        {
+            Content ?
+            <div class="w-full m-4">
+                <aside class="float-right">
+                    <IconCard icon={icon}></IconCard>
+                </aside>
+                <div class="w-max">
+                    <Container><Content /></Container>
+                </div>
+            </div> 
+                    :
+            <div class="m-auto">
+                <IconCard icon={icon}></IconCard>
+            </div>
+        }
     </div>
 </Page>

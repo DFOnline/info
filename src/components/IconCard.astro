@@ -1,5 +1,6 @@
 ---
 import { cleanText, Icon } from '../actiondump';
+import Container from './Container.astro';
 
 export interface Props {
     icon: Icon;
@@ -8,18 +9,18 @@ export interface Props {
 const { icon } = Astro.props;
 ---
 
-<div class="bg-zinc-800 rounded-lg text-white p-5 grid grid-flow-col">
+<Container>
     <div>
         <h2 class="text-lg">{cleanText(icon.name)}</h2>
-        <p>
-            {cleanText(icon.description.join(' '))}
+        <p class="flex flex-col">
+            {icon.description.map(line => <span>{cleanText(line)}</span>)}
         </p>
-        {icon.example.length != 0 && <p>
-            {icon.example.map(line => <span>{line.includes('»') && <br />} {<span>{cleanText(line)}</span>}</span>)}    
-        </p>}
+        {icon.example.length != 0 && <ul><br />
+            {icon.example.map(line => <li>{<span>{cleanText(line)}</span>}</li>)}    
+        </ul>}
     </div>
     <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />
-</div>
+</Container>
 
 <style>
     img:after {
