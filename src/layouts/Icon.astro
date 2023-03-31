@@ -4,6 +4,7 @@ import { cleanText, Icon, Text, TypeToString } from '../actiondump';
 import IconCard from '../components/IconCard.astro';
 import { getEntryBySlug } from 'astro:content';
 import Container from '../components/Container.astro';
+import MarkDown from '../components/MarkDown.astro';
 
 export interface Props {
     icon: Icon;
@@ -47,7 +48,7 @@ console.log(Content)
                     <IconCard icon={icon}></IconCard>
                 </aside>
                 <div class="w-max">
-                    <Container><Content /></Container>
+                    <MarkDown><Container><Content /></Container></MarkDown>
                 </div>
             </div> 
                     :

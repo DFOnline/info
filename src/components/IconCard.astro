@@ -10,16 +10,18 @@ const { icon } = Astro.props;
 ---
 
 <Container>
-    <div>
-        <h2 class="text-lg">{cleanText(icon.name)}</h2>
-        <p class="flex flex-col">
-            {icon.description.map(line => <span>{cleanText(line)}</span>)}
-        </p>
-        {icon.example.length != 0 && <ul><br />
+    <div class="flex">
+        <div>
+            <h2 class="text-lg">{cleanText(icon.name)}</h2>
+            <p class="flex flex-col">
+                {icon.description.map(line => <span>{cleanText(line)}</span>)}
+            </p>
+            {icon.example.length != 0 && <ul><br />
             {icon.example.map(line => <li>{<span>{cleanText(line)}</span>}</li>)}    
-        </ul>}
+            </ul>}
+        </div>
+        <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />
     </div>
-    <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />
 </Container>
 
 <style>
