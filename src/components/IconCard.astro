@@ -1,23 +1,26 @@
 ---
-import { cleanText, Icon } from '../actiondump';
+import type { Icon } from '../actiondump';
 import Container from './Container.astro';
+import MinecraftText from './MinecraftText.astro';
 
 export interface Props {
     icon: Icon;
 }
 
 const { icon } = Astro.props;
+
+const GRAY = '§7'
 ---
 
 <Container>
     <div class="flex">
         <div>
-            <h2 class="text-lg">{cleanText(icon.name)}</h2>
+            <h2 class="text-lg"><MinecraftText text={icon.name} /></h2>
             <p class="flex flex-col">
-                {icon.description.map(line => <span>{cleanText(line)}</span>)}
+                {icon.description.map(line => <span>{<MinecraftText text={GRAY + line} />}</span>)}
             </p>
             {icon.example.length != 0 && <ul><br />
-            {icon.example.map(line => <li>{<span>{cleanText(line)}</span>}</li>)}    
+            {icon.example.map(line => <li>{<MinecraftText text={GRAY + line} />}</li>)}    
             </ul>}
         </div>
         <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />

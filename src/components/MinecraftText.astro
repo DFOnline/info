@@ -1,0 +1,111 @@
+---
+export interface Props {
+    /** `§` codes, `&` codes will be rejected */
+    text: string; 
+}
+
+const { text } = Astro.props;
+
+const DEFAULT_STYLE = {
+    color: "#FFFFFF",
+    bold: false,
+    underline: false,
+    strikethrough: false,
+    italic: false,
+    obfuscated: false,
+};
+
+const MATCH_REGEX = /§(([0-9a-kfmnolr])|x(§[0-9a-f]){6})|[^§]+/g;
+const COLOR_REGEX = /^§([0-9a-kfmnolr]|x(§[0-9a-f]){6})/;
+
+const COLORS_MAP = new Map(Object.entries({
+  "0": "#000000", // Black
+  "1": "#0000AA", // Dark Blue
+  "2": "#00AA00", // Dark Green
+  "3": "#00AAAA", // Dark Aqua
+  "4": "#AA0000", // Dark Red
+  "5": "#AA00AA", // Dark Purple
+  "6": "#FFAA00", // Gold
+  "7": "#AAAAAA", // Gray
+  "8": "#555555", // Dark Gray
+  "9": "#5555FF", // Blue
+  "a": "#55FF55", // Green
+  "b": "#55FFFF", // Aqua
+  "c": "#FF5555", // Red
+  "d": "#FF55FF", // Light Purple
+  "e": "#FFFF55", // Yellow
+  "f": "#FFFFFF", // White
+
+  "r": "#FFFFFF", // Reset
+}));
+const STYLES_MAP = new Map(Object.entries({
+  "l": "bold",
+  "o": "italic",
+  "n": "underlined",
+  "m": "strikethrough",
+  "k": "obfuscated"
+}));
+
+let style = {...DEFAULT_STYLE}
+
+const components = text.match(MATCH_REGEX);
+---
+
+<span class="mc">
+    {components?.map(component => {
+        if(component.startsWith('§')) {
+            const styler = component.replace(/§/g,'');
+            if(COLORS_MAP.has(styler)) {
+                style = {...DEFAULT_STYLE};
+                style.color = COLORS_MAP.get(styler) as string;
+            }
+            if(STYLES_MAP.has(styler)) {
+                style[STYLES_MAP.get(styler) as 'bold'] = true;
+            }
+        }
+        else {
+            const classes = [...STYLES_MAP.values()].filter(formatter => style[formatter as 'bold'])
+            return <span style={`color: ${style.color};`} class={classes.join(' ')}>{component}</span>;
+        }
+        }).filter(x => x)}
+</span>
+
+<style is:inline>
+    @keyframes obfuscated {
+        0% {
+            text-shadow: 1px 1px black, 2px 2px currentColor;
+        }
+        25% {
+            text-shadow: -1px 1px black, 1px -1px currentColor;
+        }
+        75% {
+            text-shadow: 1px -1px black, -1px 1px currentColor;
+        }
+        50% {
+            text-shadow: 1px 1px black, -1px -1px currentColor;
+        }
+    }
+
+    .mc .bold {
+        font-weight: bold;
+    }
+    .mc .italic {
+        font-style: italic;
+    }
+    .mc .underlined {
+        text-decoration: underline;
+    }
+    .mc .strikethrough {
+        text-decoration: line-through;
+    }
+    .mc .underlined.strikethrough {
+        text-decoration: underline line-through;
+    }
+    .mc .obfuscated {
+        display: inline-block;
+        /* position: relative; */
+        /* transform: scaleY(2); */
+        animation: obfuscated 0.1s linear infinite;
+    }
+
+</style>
