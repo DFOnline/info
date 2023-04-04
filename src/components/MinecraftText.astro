@@ -59,8 +59,12 @@ const components = text.match(MATCH_REGEX);
                 style = {...DEFAULT_STYLE};
                 style.color = COLORS_MAP.get(styler) as string;
             }
-            if(STYLES_MAP.has(styler)) {
+            else if(STYLES_MAP.has(styler)) {
                 style[STYLES_MAP.get(styler) as 'bold'] = true;
+            }
+            else if(styler[0] === 'x') {
+                style = {...DEFAULT_STYLE};
+                style.color = styler.replace('x','#').toUpperCase();
             }
         }
         else {
@@ -107,5 +111,4 @@ const components = text.match(MATCH_REGEX);
         /* transform: scaleY(2); */
         animation: obfuscated 0.1s linear infinite;
     }
-
 </style>
