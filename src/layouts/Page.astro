@@ -1,5 +1,6 @@
 ---
 import { imageMetadata } from 'astro/dist/assets';
+import Footer from '../components/Footer.astro';
 import SideBar from '../components/SideBar.astro';
 
 export interface Props {
@@ -26,11 +27,14 @@ const { title, image, description, background } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="min-h-screen grid grid-flow-col-dense grid-cols-8">
-		<SideBar />
-		<main style={background && `background: ${background};`} class="min-h-full col-span-8">
-			<h1>{title}</h1>
-			<slot />
-		</main>
+	<body class="min-h-screen grid grid-rows-1">
+		<div class="grid grid-flow-col-dense grid-cols-8 h-full">
+			<SideBar />
+			<main style={background && `background: ${background};`} class="min-h-full col-span-8">
+				<h1>{title}</h1>
+				<slot />
+			</main>
+		</div>
+		<Footer />
 	</body>
 </html>

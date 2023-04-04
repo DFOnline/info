@@ -1,5 +1,5 @@
 ---
-import type { Icon } from '../actiondump';
+import { Icon, TypeToString } from '../actiondump';
 import Container from './Container.astro';
 import MinecraftText from './MinecraftText.astro';
 
@@ -22,6 +22,24 @@ const GRAY = '§7'
             {icon.example.length != 0 && <ul><br />
             {icon.example.map(line => <li>{<MinecraftText text={GRAY + line} />}</li>)}    
             </ul>}
+            {icon.arguments != null && icon.arguments.length != 0 && <div class="p-2 pt-1 rounded-md bg-zinc-900">
+                <h3 class="font-bold">Chest Arguments</h3>
+                <ul>
+                    {icon.arguments?.map(arg => 
+                    <li>
+                        {arg.text != null && <MinecraftText text={arg.text} />}
+                        {arg.type != null && <MinecraftText text={`${TypeToString[arg.type]}${arg.plural?'(s)':''}${arg.optional?'§f*':''} §8—`} />}
+                        {arg.description != null && arg.description.map((description, i) => <span>{i != 0 && <br />}<MinecraftText text={"§7" + description} /></span>)}
+                        {arg.notes != null && arg.notes.length != 0 && arg.notes.map(note => 
+                            <span>
+                                <br /><span class="text-blue-700"></span>
+                                <span>{note.map((line,i) => <span>{i != 0 && <br />}<MinecraftText text={"§7" + line} /></span>)}</span>
+                            </span>
+                        )}
+                    </li>)}
+                </ul>
+            </div>}
+            {icon.cancellable && <br /><span class="text-red-600">∅ Cancell {icon.cancelledAutomatically ? 'ed automatically' : 'able'}</span>}
         </div>
         <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />
     </div>
