@@ -2157,13 +2157,10 @@
             ],
             "aliases": [],
             "icon": {
-                "material": "CLOCK",
-                "name": "§eSend Player Animation",
+                "material": "STONE",
+                "name": "",
                 "deprecatedNote": [],
-                "description": [
-                    "Makes a player perform",
-                    "an animation."
-                ],
+                "description": [],
                 "example": [],
                 "worksWith": [],
                 "additionalInfo": [],
@@ -2345,7 +2342,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Heals to full health"
+                            "Heals to full health§7)"
                         ],
                         "notes": []
                     }
@@ -2392,7 +2389,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Plot spawn"
+                            "Plot spawn§7)"
                         ],
                         "notes": []
                     }
@@ -2894,7 +2891,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Removes fog"
+                            "Removes fog§7)"
                         ],
                         "notes": []
                     }
@@ -3374,9 +3371,49 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Stops spectating"
+                            "Stops spectating§7)"
                         ],
                         "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "HurtAnimation",
+            "codeblockName": "PLAYER ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "REDSTONE",
+                "name": "§eSend Hurt Animation",
+                "deprecatedNote": [],
+                "description": [
+                    "Makes a player perform",
+                    "a hurt animation."
+                ],
+                "example": [],
+                "worksWith": [],
+                "additionalInfo": [],
+                "requiredRank": "Noble",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "LOCATION",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Damage source"
+                        ],
+                        "notes": [
+                            [
+                                "Affects the direction of",
+                                "the screen tilt effect."
+                            ]
+                        ]
                     }
                 ]
             }
@@ -3885,7 +3922,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Clear Skin"
+                            "Clear Skin§7)"
                         ],
                         "notes": []
                     }
@@ -3944,7 +3981,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Clear status"
+                            "Clear status§7)"
                         ],
                         "notes": []
                     }
@@ -4351,6 +4388,31 @@
                 "worksWith": [],
                 "additionalInfo": [],
                 "requiredRank": "",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": []
+            }
+        },
+        {
+            "name": "WakeUpAnimation",
+            "codeblockName": "PLAYER ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "RED_BED",
+                "name": "§eSend Wake Up Animation",
+                "deprecatedNote": [],
+                "description": [
+                    "Displays the wake up (fade in)",
+                    "animation to a player."
+                ],
+                "example": [],
+                "worksWith": [],
+                "additionalInfo": [],
+                "requiredRank": "Noble",
                 "requireTokens": false,
                 "requireRankAndTokens": false,
                 "advanced": false,
@@ -5226,7 +5288,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Dismounts player"
+                            "Dismounts player§7)"
                         ],
                         "notes": []
                     }
@@ -6744,7 +6806,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Resets chat tag"
+                            "Resets chat tag§7)"
                         ],
                         "notes": []
                     }
@@ -8277,7 +8339,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Resets chat color"
+                            "Resets chat color§7)"
                         ],
                         "notes": []
                     }
@@ -8374,7 +8436,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Daylight ticks)"
+                            "Daylight ticks"
                         ],
                         "notes": [
                             [
@@ -8399,7 +8461,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Resets player time"
+                            "Resets player time§7)"
                         ],
                         "notes": []
                     }
@@ -10450,7 +10512,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Removes hologram"
+                            "Removes hologram§7)"
                         ],
                         "notes": []
                     }
@@ -11876,7 +11938,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Reset name"
+                            "Reset name§7)"
                         ],
                         "notes": []
                     }
@@ -29317,7 +29379,7 @@
                         "plural": false,
                         "optional": true,
                         "description": [
-                            "Gets list of all pages"
+                            "Gets list of all pages§7)"
                         ],
                         "notes": []
                     }
@@ -33163,6 +33225,114 @@
             }
         },
         {
+            "name": "DispRotationEuler",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Rotation Type",
+                    "options": [
+                        {
+                            "name": "Left Rotation",
+                            "icon": {
+                                "material": "HEART_OF_THE_SEA",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Corresponds to the left-singular",
+                                    "vector matrix after the singular",
+                                    "value decomposition."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Right Rotation",
+                            "icon": {
+                                "material": "HEART_OF_THE_SEA",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Corresponds to the right-singular",
+                                    "vector matrix after the singular",
+                                    "value decomposition."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Left Rotation",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "HEART_OF_THE_SEA",
+                "name": "§6Set Display Rotation from Euler Angles",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the left or right rotation of a",
+                    "display entity from 3 angles on",
+                    "each axis."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": true,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Pitch (§c0§7-§c360§7)"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Yaw (§c0§7-§c360§7)"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Roll (§c0§7-§c360§7)"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetParrotColor",
             "codeblockName": "ENTITY ACTION",
             "tags": [
@@ -33288,6 +33458,73 @@
             }
         },
         {
+            "name": "DispTranslation",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "ARROW",
+                "name": "§6Set Display Translation",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the translation values",
+                    "of a display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": true,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "X translation"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Y translation"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Z translation"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "text": "§x§f§f§5§5§a§aOR"
+                    },
+                    {
+                        "type": "VECTOR",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Translation vector"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "Remove",
             "codeblockName": "ENTITY ACTION",
             "tags": [],
@@ -33391,6 +33628,124 @@
                             "New velocity"
                         ],
                         "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TDispBackground",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "TINTED_GLASS",
+                "name": "§6Set Text Display Background",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the background color",
+                    "and opacity of a text display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "TEXT",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Color hexadecimal"
+                        ],
+                        "notes": [
+                            [
+                                "Example: §b\"#FF0000\"§7 (red)"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Opacity in percentage"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "text": "§x§f§f§5§5§a§aOR"
+                    },
+                    {
+                        "type": "NONE",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Uses the default",
+                            "background color§7)"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "DisplayCullingSize",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "GLASS",
+                "name": "§6Set Display Culling Size",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the culling width",
+                    "and height of a",
+                    "display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Width"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c0§7"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Height"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c0§7"
+                            ]
+                        ]
                     }
                 ]
             }
@@ -33545,6 +33900,105 @@
                 "loadedItem": "",
                 "tags": 1,
                 "arguments": []
+            }
+        },
+        {
+            "name": "DispRotAxisAngle",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Rotation Type",
+                    "options": [
+                        {
+                            "name": "Left Rotation",
+                            "icon": {
+                                "material": "HEART_OF_THE_SEA",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Corresponds to the left-singular",
+                                    "vector matrix after the singular",
+                                    "value decomposition."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Right Rotation",
+                            "icon": {
+                                "material": "HEART_OF_THE_SEA",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Corresponds to the right-singular",
+                                    "vector matrix after the singular",
+                                    "value decomposition."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Left Rotation",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "PRISMARINE_SHARD",
+                "name": "§6Set Display Rotation from Axis-Angle",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the left or right rotation of",
+                    "a display entity from axis-angle",
+                    "rotation."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": true,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": [
+                    {
+                        "type": "VECTOR",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Axis vector"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Angle (§c0§7-§c360§7)"
+                        ],
+                        "notes": []
+                    }
+                ]
             }
         },
         {
@@ -34600,7 +35054,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Removes shooter"
+                            "Removes shooter§7)"
                         ],
                         "notes": []
                     }
@@ -35653,6 +36107,65 @@
                         "optional": false,
                         "description": [
                             "Target name or UUID"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "DisplayBrightness",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "LIGHT",
+                "name": "§6Set Display Brightness",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the brightness",
+                    "of a display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Block light level (§c0§7-§c15§7)"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Sky light level (§c0§7-§c15§7)"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "text": "§x§f§f§5§5§a§aOR"
+                    },
+                    {
+                        "type": "NONE",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Uses the light level",
+                            "at entity's location§7)"
                         ],
                         "notes": []
                     }
@@ -36965,6 +37478,78 @@
             }
         },
         {
+            "name": "TDisplayShadow",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Text Shadow",
+                    "options": [
+                        {
+                            "name": "Enable",
+                            "icon": {
+                                "material": "LIME_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Disable",
+                            "icon": {
+                                "material": "RED_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Enable",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "NAME_TAG",
+                "name": "§6Set Text Display Text Shadow",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets whether the text in",
+                    "a text display has",
+                    "shadow or not."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": []
+            }
+        },
+        {
             "name": "SetCreeperPower",
             "codeblockName": "ENTITY ACTION",
             "tags": [],
@@ -37795,7 +38380,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Removes custom name"
+                            "Removes custom name§7)"
                         ],
                         "notes": []
                     }
@@ -37868,6 +38453,56 @@
                             "Ticks"
                         ],
                         "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "BDisplayBlock",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "BRICKS",
+                "name": "§6Set Block Display Block",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the displayed block",
+                    "of a block display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Block Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "BLOCK",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Displayed block"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "BLOCK_TAG",
+                        "plural": true,
+                        "optional": true,
+                        "description": [
+                            "Block data"
+                        ],
+                        "notes": [
+                            [
+                                "Example: §b\"facing=up\"§7, §b\"half=top\"§7"
+                            ]
+                        ]
                     }
                 ]
             }
@@ -37976,6 +38611,78 @@
                 "advanced": false,
                 "loadedItem": "",
                 "tags": 0,
+                "arguments": []
+            }
+        },
+        {
+            "name": "TDisplaySeeThru",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "See-through",
+                    "options": [
+                        {
+                            "name": "Enable",
+                            "icon": {
+                                "material": "LIME_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Disable",
+                            "icon": {
+                                "material": "RED_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Enable",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "SPECTRAL_ARROW",
+                "name": "§6Set Text Display See-through",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets whether a text display",
+                    "is visible through walls",
+                    "or not."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
                 "arguments": []
             }
         },
@@ -38097,6 +38804,133 @@
                         "notes": []
                     }
                 ]
+            }
+        },
+        {
+            "name": "DisplayShadow",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "WITHER_SKELETON_SPAWN_EGG",
+                "name": "§6Set Display Shadow",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the shadow properties",
+                    "of a display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Shadow radius in blocks"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c1§7"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Shadow opacity in",
+                            "percentage"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c100§7"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "InteractResponse",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Responsive",
+                    "options": [
+                        {
+                            "name": "Enable",
+                            "icon": {
+                                "material": "LIME_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Disable",
+                            "icon": {
+                                "material": "RED_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Enable",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "NOTE_BLOCK",
+                "name": "§6Set Interaction Responsive",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets whether an interaction",
+                    "entity has response when",
+                    "interacting with it."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Interaction Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": []
             }
         },
         {
@@ -39163,7 +39997,45 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Dismounts entity"
+                            "Dismounts entity§7)"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "DisplayMatrix",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "DAYLIGHT_DETECTOR",
+                "name": "§6Set Display Transformation Matrix",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the affine transformation",
+                    "matrix of a display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": true,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "LIST",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "16 numbers describing",
+                            "a row-major matrix"
                         ],
                         "notes": []
                     }
@@ -39190,6 +40062,63 @@
                 "loadedItem": "",
                 "tags": 0,
                 "arguments": []
+            }
+        },
+        {
+            "name": "DispInterpolation",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "MINECART",
+                "name": "§6Set Display Interpolation",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the interpolation",
+                    "properties of a display",
+                    "entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Interpolation duration",
+                            "in ticks"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c0§7"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Interpolation delay",
+                            "in ticks"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c0§7"
+                            ]
+                        ]
+                    }
+                ]
             }
         },
         {
@@ -39580,6 +40509,60 @@
             }
         },
         {
+            "name": "DisplayGlowColor",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "GLOW_INK_SAC",
+                "name": "§6Set Display Glow Color",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the glowing color",
+                    "of a display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Item Display",
+                    "Block Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "TEXT",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Color hexadecimal"
+                        ],
+                        "notes": [
+                            [
+                                "Example: §b\"#FF0000\"§7 (red)"
+                            ]
+                        ]
+                    },
+                    {
+                        "text": "§x§f§f§5§5§a§aOR"
+                    },
+                    {
+                        "type": "NONE",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Resets glow color§7)"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetVisualFire",
             "codeblockName": "ENTITY ACTION",
             "tags": [
@@ -39716,6 +40699,60 @@
                             "Tag name"
                         ],
                         "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "InteractionSize",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "WHITE_STAINED_GLASS",
+                "name": "§6Set Interaction Size",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the hitbox size of",
+                    "an interaction entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Interaction Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Width"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c1§7"
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Height"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c1§7"
+                            ]
+                        ]
                     }
                 ]
             }
@@ -40098,6 +41135,203 @@
                         "notes": []
                     }
                 ]
+            }
+        },
+        {
+            "name": "DisplayScale",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "PAPER",
+                "name": "§6Set Display Scale",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the scale of",
+                    "a display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": true,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "X scale"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Y scale"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Z scale"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "text": "§x§f§f§5§5§a§aOR"
+                    },
+                    {
+                        "type": "VECTOR",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Scale vector"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TDisplayLineWidth",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "OAK_SIGN",
+                "name": "§6Set Text Display Line Width",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the maximum line width",
+                    "of a text display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Line width"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c200§7"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TDisplayAlign",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Text Alignment",
+                    "options": [
+                        {
+                            "name": "Center",
+                            "icon": {
+                                "material": "GOLD_NUGGET",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Left",
+                            "icon": {
+                                "material": "GOLD_INGOT",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Right",
+                            "icon": {
+                                "material": "GOLD_INGOT",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Center",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "JIGSAW",
+                "name": "§6Set Text Display Text Alignment",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the text alignment",
+                    "of a text display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": []
             }
         },
         {
@@ -40860,6 +42094,126 @@
             }
         },
         {
+            "name": "DisplayBillboard",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Billboard Type",
+                    "options": [
+                        {
+                            "name": "Fixed",
+                            "icon": {
+                                "material": "PAINTING",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Display entity does not",
+                                    "rotate."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Vertical",
+                            "icon": {
+                                "material": "NETHER_STAR",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Display entity faces player",
+                                    "around vertical axis."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Horizontal",
+                            "icon": {
+                                "material": "NETHER_STAR",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Display entity faces player",
+                                    "around horizontal axis."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Center",
+                            "icon": {
+                                "material": "ENDER_EYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Display entity faces player",
+                                    "in all axes."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Fixed",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "ENDER_EYE",
+                "name": "§6Set Display Billboard",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets how a display entity",
+                    "is rotated with a",
+                    "player's view."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": []
+            }
+        },
+        {
             "name": "NoProjColl",
             "codeblockName": "ENTITY ACTION",
             "tags": [],
@@ -41350,7 +42704,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Untames mob"
+                            "Untames mob§7)"
                         ],
                         "notes": []
                     }
@@ -41492,6 +42846,203 @@
                 ],
                 "additionalInfo": [],
                 "requiredRank": "",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": []
+            }
+        },
+        {
+            "name": "IDisplayModelType",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Model Type",
+                    "options": [
+                        {
+                            "name": "None",
+                            "icon": {
+                                "material": "GRAY_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "First Person Left Hand",
+                            "icon": {
+                                "material": "IRON_PICKAXE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "First Person Right Hand",
+                            "icon": {
+                                "material": "IRON_PICKAXE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Third Person Left Hand",
+                            "icon": {
+                                "material": "ARMOR_STAND",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Third Person Right Hand",
+                            "icon": {
+                                "material": "ARMOR_STAND",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Head",
+                            "icon": {
+                                "material": "PLAYER_HEAD",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "GUI",
+                            "icon": {
+                                "material": "ITEM_FRAME",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Ground",
+                            "icon": {
+                                "material": "GRASS_BLOCK",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Fixed",
+                            "icon": {
+                                "material": "CREEPER_BANNER_PATTERN",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "None",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "LECTERN",
+                "name": "§6Set Item Display Model Type",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the model type",
+                    "of an item display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Item Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
                 "requireTokens": false,
                 "requireRankAndTokens": false,
                 "advanced": false,
@@ -42226,6 +43777,84 @@
                         "optional": false,
                         "description": [
                             "Stop moving"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TDisplayOpacity",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "BIRCH_SIGN",
+                "name": "§6Set Text Display Text Opacity",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the text opacity",
+                    "of a text display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Text opacity"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c100§7"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "IDisplayItem",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "CRAFTING_TABLE",
+                "name": "§6Set Item Display Item",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the displayed item",
+                    "of an item display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Item Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "ITEM",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Displayed item"
                         ],
                         "notes": []
                     }
@@ -43486,6 +45115,52 @@
             }
         },
         {
+            "name": "DisplayViewRange",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "FILLED_MAP",
+                "name": "§6Set Display View Range",
+                "color": {
+                    "red": 42,
+                    "green": 112,
+                    "blue": 212
+                },
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the view range of a",
+                    "display entity."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Any Display Entity"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "View range in blocks"
+                        ],
+                        "notes": [
+                            [
+                                "Default = §c64§7"
+                            ]
+                        ]
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetSize",
             "codeblockName": "ENTITY ACTION",
             "tags": [],
@@ -44225,6 +45900,91 @@
             }
         },
         {
+            "name": "TDisplayText",
+            "codeblockName": "ENTITY ACTION",
+            "tags": [
+                {
+                    "name": "Text Value Merging",
+                    "options": [
+                        {
+                            "name": "Add spaces",
+                            "icon": {
+                                "material": "PISTON",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": [
+                                "Add Spaces"
+                            ]
+                        },
+                        {
+                            "name": "No spaces",
+                            "icon": {
+                                "material": "STICKY_PISTON",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": [
+                                "No Spaces"
+                            ]
+                        }
+                    ],
+                    "defaultOption": "No spaces",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "BOOK",
+                "name": "§6Set Text Display Text",
+                "deprecatedNote": [],
+                "description": [
+                    "Sets the displayed text",
+                    "of a text display."
+                ],
+                "example": [],
+                "worksWith": [
+                    "Text Display"
+                ],
+                "additionalInfo": [],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": [
+                    {
+                        "type": "TEXT",
+                        "plural": true,
+                        "optional": false,
+                        "description": [
+                            "Displayed text"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetHorseJump",
             "codeblockName": "ENTITY ACTION",
             "tags": [],
@@ -44315,7 +46075,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Reset name"
+                            "Reset name§7)"
                         ],
                         "notes": []
                     }
@@ -48408,6 +50168,54 @@
             }
         },
         {
+            "name": "SpawnItemDisplay",
+            "codeblockName": "GAME ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "ITEM_FRAME",
+                "name": "§dSpawn Item Display",
+                "deprecatedNote": [],
+                "description": [
+                    "Spawns an item display entity."
+                ],
+                "example": [],
+                "worksWith": [],
+                "additionalInfo": [
+                    [
+                        "Notable defaults:",
+                        "§9⏵ §7Billboard = §eFixed"
+                    ]
+                ],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "LOCATION",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Spawn location"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "ITEM",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Displayed item"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetEventProj",
             "codeblockName": "GAME ACTION",
             "tags": [],
@@ -50332,6 +52140,114 @@
             }
         },
         {
+            "name": "SpawnInteraction",
+            "codeblockName": "GAME ACTION",
+            "tags": [
+                {
+                    "name": "Responsive",
+                    "options": [
+                        {
+                            "name": "Enable",
+                            "icon": {
+                                "material": "LIME_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "Player swings main hand and",
+                                    "plays the attack sound."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        },
+                        {
+                            "name": "Disable",
+                            "icon": {
+                                "material": "RED_DYE",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [
+                                    "No visual or audio response."
+                                ],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": []
+                        }
+                    ],
+                    "defaultOption": "Disable",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "GLASS",
+                "name": "§dSpawn Interaction Entity",
+                "deprecatedNote": [],
+                "description": [
+                    "Spawns an invisible hitbox",
+                    "with the specified size."
+                ],
+                "example": [],
+                "worksWith": [],
+                "additionalInfo": [
+                    [
+                        "Detect interactions with:",
+                        "§9⏵ §ePlayer Damage Entity Event",
+                        "§9⏵ §ePlayer Right Click Entity Event"
+                    ]
+                ],
+                "requiredRank": "",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": [
+                    {
+                        "type": "LOCATION",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Spawn location"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Hitbox width"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "NUMBER",
+                        "plural": false,
+                        "optional": true,
+                        "description": [
+                            "Hitbox height"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetItemInSlot",
             "codeblockName": "GAME ACTION",
             "tags": [],
@@ -50983,6 +52899,67 @@
                 "loadedItem": "",
                 "tags": 0,
                 "arguments": []
+            }
+        },
+        {
+            "name": "SpawnBlockDisp",
+            "codeblockName": "GAME ACTION",
+            "tags": [],
+            "aliases": [],
+            "icon": {
+                "material": "BRICKS",
+                "name": "§dSpawn Block Display",
+                "deprecatedNote": [],
+                "description": [
+                    "Spawns a block display entity."
+                ],
+                "example": [],
+                "worksWith": [],
+                "additionalInfo": [
+                    [
+                        "Notable defaults:",
+                        "§9⏵ §7Billboard = §eFixed"
+                    ]
+                ],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 0,
+                "arguments": [
+                    {
+                        "type": "LOCATION",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Spawn location"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "BLOCK",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Displayed block"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "BLOCK_TAG",
+                        "plural": true,
+                        "optional": true,
+                        "description": [
+                            "Block data"
+                        ],
+                        "notes": [
+                            [
+                                "Example: §b\"facing=up\"§7, §b\"half=top\"§7"
+                            ]
+                        ]
+                    }
+                ]
             }
         },
         {
@@ -51908,6 +53885,104 @@
             }
         },
         {
+            "name": "SpawnTextDisplay",
+            "codeblockName": "GAME ACTION",
+            "tags": [
+                {
+                    "name": "Text Value Merging",
+                    "options": [
+                        {
+                            "name": "Add spaces",
+                            "icon": {
+                                "material": "PISTON",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": [
+                                "Add Spaces"
+                            ]
+                        },
+                        {
+                            "name": "No spaces",
+                            "icon": {
+                                "material": "STICKY_PISTON",
+                                "name": "",
+                                "deprecatedNote": [],
+                                "description": [],
+                                "example": [],
+                                "worksWith": [],
+                                "additionalInfo": [],
+                                "requiredRank": "",
+                                "requireTokens": false,
+                                "requireRankAndTokens": false,
+                                "advanced": false,
+                                "loadedItem": ""
+                            },
+                            "aliases": [
+                                "No Spaces"
+                            ]
+                        }
+                    ],
+                    "defaultOption": "No spaces",
+                    "slot": 26
+                }
+            ],
+            "aliases": [],
+            "icon": {
+                "material": "JUNGLE_SIGN",
+                "name": "§dSpawn Text Display",
+                "deprecatedNote": [],
+                "description": [
+                    "Spawns a text display entity."
+                ],
+                "example": [],
+                "worksWith": [],
+                "additionalInfo": [
+                    [
+                        "Notable defaults:",
+                        "§9⏵ §7Line Width = §e200",
+                        "§9⏵ §7Text Alignment = §eCenter",
+                        "§9⏵ §7Billboard = §eCenter"
+                    ]
+                ],
+                "requiredRank": "Mythic",
+                "requireTokens": false,
+                "requireRankAndTokens": false,
+                "advanced": false,
+                "loadedItem": "",
+                "tags": 1,
+                "arguments": [
+                    {
+                        "type": "LOCATION",
+                        "plural": false,
+                        "optional": false,
+                        "description": [
+                            "Spawn location"
+                        ],
+                        "notes": []
+                    },
+                    {
+                        "type": "TEXT",
+                        "plural": true,
+                        "optional": false,
+                        "description": [
+                            "Displayed text"
+                        ],
+                        "notes": []
+                    }
+                ]
+            }
+        },
+        {
             "name": "SetEventXP",
             "codeblockName": "GAME ACTION",
             "tags": [],
@@ -52002,7 +54077,7 @@
                         "plural": false,
                         "optional": false,
                         "description": [
-                            "Unlocks the container"
+                            "Unlocks the container§7)"
                         ],
                         "notes": []
                     }
@@ -53536,7 +55611,7 @@
                         "plural": false,
                         "optional": true,
                         "description": [
-                            "Checks for empty slot"
+                            "Checks for empty slot§7)"
                         ],
                         "notes": []
                     }
@@ -65625,7 +67700,8 @@
                 "name": "§cBee Sting",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§72 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -79249,7 +81325,8 @@
                 "name": "§aArmor Equip (Turtle)",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§73 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -80103,7 +82180,8 @@
                 "name": "§aDye Use",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§74 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -80314,7 +82392,8 @@
                 "name": "§aSpyglass Use",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§74 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -80333,7 +82412,8 @@
                 "name": "§cSpyglass Stop Using",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§73 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -80631,7 +82711,8 @@
                 "name": "§5Beehive Enter",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§72 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -80650,7 +82731,8 @@
                 "name": "§3Beehive Exit",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§73 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -80669,7 +82751,8 @@
                 "name": "§3Beehive Shear",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§73 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -90948,7 +93031,8 @@
                 "name": "§3Bell Resonate",
                 "deprecatedNote": [],
                 "description": [
-                    "§71 variant"
+                    "§73 variants",
+                    "§8Middle-click to view"
                 ],
                 "example": [],
                 "worksWith": [],
@@ -91931,9 +94015,9 @@
                 "material": "POTION",
                 "name": "§x§5§5§a§a§f§fSpeed",
                 "color": {
-                    "red": 124,
-                    "green": 175,
-                    "blue": 198
+                    "red": 51,
+                    "green": 235,
+                    "blue": 255
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -91956,9 +94040,9 @@
                 "material": "POTION",
                 "name": "§x§5§5§0§0§f§fSlowness",
                 "color": {
-                    "red": 90,
-                    "green": 108,
-                    "blue": 129
+                    "red": 139,
+                    "green": 175,
+                    "blue": 224
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92033,9 +94117,9 @@
                 "material": "POTION",
                 "name": "§4Strength",
                 "color": {
-                    "red": 147,
-                    "green": 36,
-                    "blue": 35
+                    "red": 255,
+                    "green": 199,
+                    "blue": 0
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92083,9 +94167,9 @@
                 "material": "POTION",
                 "name": "§4Instant Damage",
                 "color": {
-                    "red": 67,
-                    "green": 10,
-                    "blue": 9
+                    "red": 169,
+                    "green": 101,
+                    "blue": 106
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92108,9 +94192,9 @@
                 "material": "POTION",
                 "name": "§aJump Boost",
                 "color": {
-                    "red": 34,
+                    "red": 253,
                     "green": 255,
-                    "blue": 76
+                    "blue": 132
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92183,9 +94267,9 @@
                 "material": "POTION",
                 "name": "§x§d§4§2§a§0§0Resistance",
                 "color": {
-                    "red": 153,
-                    "green": 69,
-                    "blue": 58
+                    "red": 145,
+                    "green": 70,
+                    "blue": 240
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92208,9 +94292,9 @@
                 "material": "POTION",
                 "name": "§6Fire Resistance",
                 "color": {
-                    "red": 228,
-                    "green": 154,
-                    "blue": 58
+                    "red": 255,
+                    "green": 153,
+                    "blue": 0
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92233,9 +94317,9 @@
                 "material": "POTION",
                 "name": "§9Water Breathing",
                 "color": {
-                    "red": 46,
-                    "green": 82,
-                    "blue": 153
+                    "red": 152,
+                    "green": 218,
+                    "blue": 192
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92258,9 +94342,9 @@
                 "material": "POTION",
                 "name": "§x§8§0§8§0§8§0Invisibility",
                 "color": {
-                    "red": 127,
-                    "green": 131,
-                    "blue": 146
+                    "red": 246,
+                    "green": 246,
+                    "blue": 246
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92309,9 +94393,9 @@
                 "material": "POTION",
                 "name": "§x§5§5§0§0§f§fNight Vision",
                 "color": {
-                    "red": 31,
-                    "green": 31,
-                    "blue": 161
+                    "red": 194,
+                    "green": 255,
+                    "blue": 102
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92384,9 +94468,9 @@
                 "material": "POTION",
                 "name": "§x§5§5§a§a§0§0Poison",
                 "color": {
-                    "red": 78,
-                    "green": 147,
-                    "blue": 49
+                    "red": 135,
+                    "green": 163,
+                    "blue": 99
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -92564,9 +94648,9 @@
                 "material": "POTION",
                 "name": "§2Luck",
                 "color": {
-                    "red": 51,
-                    "green": 153,
-                    "blue": 0
+                    "red": 89,
+                    "green": 193,
+                    "blue": 6
                 },
                 "deprecatedNote": [],
                 "description": [
@@ -95295,7 +97379,7 @@
                         "loadedItem": ""
                     },
                     "id": "§x§f§f§f§f§a§amassive plot",
-                    "price": 60,
+                    "price": 70,
                     "currencyType": "Prize Ticket"
                 },
                 {
