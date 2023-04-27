@@ -7,9 +7,9 @@ const codeblock = findCodeBlock(Astro.params.block as string);
 const action = findAction(codeblock as Codeblock, Astro.params.action as string);
 
 export function findAction(codeblock: Codeblock, query: string) {
-    const term = query.toLowerCase().replace(' ','').replace('_','')
-    return ActionDump.actions.find(a => (a.codeblockName == codeblock.name) && (a.name.toLowerCase() == term || a.icon.name.replace(' ','').toLowerCase() == term || a.aliases.find(a => a.replace(' ','').toLowerCase() == term)))
+    const term = query.toLowerCase().replace(' ','').replace('_','');
+    return ActionDump.actions.find(a => (a.codeblockName == codeblock.name) && (a.name.toLowerCase() == term || a.icon.name.replace(' ','').toLowerCase() == term || a.aliases.find(a => a.replace(' ','').toLowerCase() == term)));
 }
 ---
 
-{codeblock && action && <CodeBlock path={[action.name.toLowerCase()]} codeblock={codeblock} icon={action.icon}></CodeBlock>}
+{codeblock && action && <CodeBlock path={[action.name.toLowerCase()]} codeblock={codeblock} icon={action.icon} tags={action.tags} subActionBlocks={action.subActionBlocks}></CodeBlock>}

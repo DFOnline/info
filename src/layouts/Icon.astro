@@ -1,6 +1,6 @@
 ---
 import Page from './Page.astro';
-import { cleanText, Icon, Text, TypeToString } from '../actiondump';
+import { cleanText, Icon, SubActionBlock, Tag, Text, TypeToString } from '../actiondump';
 import IconCard from '../components/IconCard.astro';
 import { getEntryBySlug } from 'astro:content';
 import Container from '../components/Container.astro';
@@ -10,13 +10,15 @@ export interface Props {
     icon: Icon;
     background?: string;
     path: string[];
+    tags?: Tag[];
+    subActionBlocks?: SubActionBlock[];
 }
 
 export function boldify(string : string) {
     return string.replace(/[A-Za-z]/g, (char : string) => String.fromCodePoint((char.codePointAt(0) as number) + (/[A-Z]/g.test(char) ? 120211 : 120205)));
 }
 
-const { background, icon, path } = Astro.props;
+const { background, icon, path, tags, subActionBlocks } = Astro.props;
 
 const description = icon.description.map(x => cleanText(x));
 if(icon.example.length > 0) {
@@ -45,7 +47,8 @@ console.log(Content)
             Content ?
             <div class="w-full m-4">
                 <aside class="float-right">
-                    <IconCard icon={icon}></IconCard>
+                    <IconCard icon={icon} tags={tags} subActionBlocks={subActionBlocks}></IconCard>
+
                 </aside>
                 <div class="w-max">
                     <MarkDown><Container><Content /></Container></MarkDown>
@@ -53,7 +56,7 @@ console.log(Content)
             </div> 
                     :
             <div class="m-auto">
-                <IconCard icon={icon}></IconCard>
+                <IconCard icon={icon} tags={tags} subActionBlocks={subActionBlocks}></IconCard>
             </div>
         }
     </div>

@@ -1,58 +1,87 @@
 ---
-import { Icon, TypeToString } from '../actiondump';
+import { Icon, RankToString, RequiredRank, SubActionBlock, Tag, TypeToString } from '../actiondump';
 import Container from './Container.astro';
 import MinecraftText from './MinecraftText.astro';
 
 export interface Props {
     icon: Icon;
+    tags?: Tag[];
+    subActionBlocks?: SubActionBlock[];
 }
 
-const { icon } = Astro.props;
+const { icon, tags, subActionBlocks } = Astro.props;
 
 const GRAY = '§7'
 ---
 
-<Container>
-    <div class="flex">
-        <div>
-            <h2 class="text-lg"><MinecraftText text={icon.name} /></h2>
-            <p class="flex flex-col">
-                {icon.description.map(line => <span>{<MinecraftText text={GRAY + line} />}</span>)}
-            </p>
-            {icon.example.length != 0 && <ul><br />
-            {icon.example.map(line => <li>{<MinecraftText text={GRAY + line} />}</li>)}    
-            </ul>}
-            {icon.arguments != null && icon.arguments.length != 0 && <div class="p-2 pt-1 rounded-md bg-zinc-900">
-                <h3 class="font-bold">Chest Arguments</h3>
-                <ul>
-                    {icon.arguments?.map(arg => 
-                    <li>
-                        {arg.text != null && <MinecraftText text={arg.text} />}
-                        {arg.type != null && <MinecraftText text={`${TypeToString[arg.type]}${arg.plural?'(s)':''}${arg.optional?'§f*':''} §8—`} />}
-                        {arg.description != null && arg.description.map((description, i) => <span>{i != 0 && <br />}<MinecraftText text={"§7" + description} /></span>)}
-                        {arg.notes != null && arg.notes.length != 0 && arg.notes.map(note => 
-                            <span>
-                                <br /><span class="text-blue-700"></span>
-                                <span>{note.map((line,i) => <span>{i != 0 && <br />}<MinecraftText text={"§7" + line} /></span>)}</span>
-                            </span>
-                        )}
-                    </li>)}
-                </ul>
-            </div>}
-            {icon.cancellable && <br /><span class="text-red-600">∅ Cancell {icon.cancelledAutomatically ? 'ed automatically' : 'able'}</span>}
+<div class="flex">
+    <Container>
+        <div class="flex overflow-auto">
+            <div>
+                <h2 class="text-xl mb-2 whitespace-nowrap w-full text-center"><MinecraftText text={icon.name} /></h2>
+                <div class="grid grid-flow-col gap-10">
+                    <div>
+                        <p class="flex flex-col">
+                            {icon.description.map(line => <span>{<MinecraftText text={GRAY + line} />}</span>)}
+                        </p>
+                        {icon.example.length != 0 && <ul><br />
+                        {icon.example.map(line => <li>{<MinecraftText text={GRAY + line} />}</li>)}    
+                        </ul>}  
+                        {icon.worksWith.length != 0 && <br /><span>Works with: {icon.worksWith.join(' ')}</span>}
+                        
+                        <br />
+                        <hr />
+                        Unparsed dump
+                        <br /> requireTokens: {String(icon.requireTokens)}
+                        <br /> returnDescription: {icon.returnDescription ?? "NULL"}
+                        <br /> returnType: {icon.returnType ?? "NULL"}
+                        <br /> tags: {icon.tags}
+                        <br />
+                    </div>
+                    <div class="grid gap-5">
+                        <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="h-[10rem] mx-auto" />
+                        {icon.arguments != null && icon.arguments.length != 0 && <div class="p-2 pt-1 rounded-md bg-zinc-900 border-black border-2 mx-auto">
+                            <h3 class="font-bold">Chest Arguments</h3>
+                            <ul class="list-decimal list-inside">
+                                {icon.arguments?.map(arg => 
+                                <li>
+                                    {arg.text != null && <MinecraftText text={arg.text} />}
+                                    {arg.type != null && <MinecraftText text={`${TypeToString[arg.type]}${arg.plural?'(s)':''}${arg.optional?'§f*':''} §8—`} />}
+                                    {arg.description != null && arg.description.map((description, i) => <span>{i != 0 && <br />}<MinecraftText text={"§7" + description} /></span>)}
+                                    {arg.notes != null && arg.notes.length != 0 && arg.notes.map(note => 
+                                        <span>
+                                            <br /><span class="text-blue-700"></span>
+                                            <span>{note.map((line,i) => <span>{i != 0 && <br />}<MinecraftText text={"§7" + line} /></span>)}</span>
+                                        </span>
+                                    )}
+                                </li>)}
+                            </ul>
+                        </div>}
+                        {tags != null && tags.length != 0 && <div>
+                            <details class="w-full">
+                                <summary class="font-bold w-max text-lg">Block Tags ({tags.length})</summary>
+                                <ul class="grid grid-flow-row gap-2">
+                                    {tags?.map(tag => 
+                                    <li>
+                                        <h4 class="text-lg">{tag.name}</h4>
+                                        <ul>
+                                            {tag.options.map(option => <li title={tag.defaultOption == option.name ? "Default option" : "Selectable option"} class={"border-l-4 pl-2 font-light " + (tag.defaultOption == option.name ? "border-l-teal-500" : "border-l-gray-600")}>
+                                                {option.name}
+                                            </li>)}
+                                        </ul>
+                                    </li>)}
+                                </ul>
+                            </details>
+                        </div>}
+                    </div>
+                </div>
+                <div class="grid grid-flow-col w-full mt-5">
+                    {(icon.advanced || icon.cancellable || icon.requiredRank != RequiredRank.Empty) && <br />}
+                    {icon.requiredRank != RequiredRank.Empty && <MinecraftText text={RankToString[icon.requiredRank]} /> }
+                    {icon.advanced && <span class="text-orange-200">Advanced</span>}
+                    {icon.cancellable && <span class="text-red-600">∅ Cancell{icon.cancelledAutomatically ? 'ed automatically' : 'able'}</span>}
+                </div>
+            </div>
         </div>
-        <img src={`https://dfonline.dev/public/images/${icon.material}.png`} alt={icon.material.replace('_',' ').toLowerCase()} class="ml-5" />
-    </div>
-</Container>
-
-<style>
-    img:after {
-        content: "";
-        clear: both;
-        display: block;
-    }
-
-    img {
-        zoom: 1;
-    }
-</style>
+    </Container>
+</div>

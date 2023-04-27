@@ -146,6 +146,14 @@ export enum RequiredRank {
     Overlord = "Overlord",
 }
 
+export enum RankToString {
+    Noble = "§aNoble",
+    Emperor = "§bEmperor",
+    Mythic = "§5Mythic",
+    Overlord = "§cOverlord",
+    Dev = "§dDev"
+}
+
 export enum SubActionBlock {
     IfEntity = "if_entity",
     IfGame = "if_game",

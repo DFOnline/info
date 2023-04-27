@@ -1,5 +1,4 @@
 ---
-import { imageMetadata } from 'astro/dist/assets';
 import Footer from '../components/Footer.astro';
 import SideBar from '../components/SideBar.astro';
 
@@ -30,7 +29,7 @@ const { title, image, description, background } = Astro.props;
 	<body class="min-h-screen grid grid-rows-1">
 		<div class="grid grid-flow-col-dense grid-cols-8 h-full">
 			<SideBar />
-			<main style={background && `background: ${background};`} class="min-h-full col-span-8">
+			<main style={background && `background: ${background}; background-size: 50px; background-blend-mode: multiply; background-color: rgba(0,0,0,.35);`} class="min-h-full col-span-8">
 				<h1>{title}</h1>
 				<slot />
 			</main>
